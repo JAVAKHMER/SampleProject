@@ -1,7 +1,8 @@
-package panharith.sample.cam.sampleproject
+package panharith.sample.cam.sampleproject.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import panharith.sample.cam.sampleproject.R
 
 class MainActivity : AppCompatActivity() {
 
