@@ -26,7 +26,4 @@ class ConfigureApplication : BaseApplication(){
         fun <T> createFragment(vmClass: KClass<out T>, args: Serializable? = null): AppBaseFragment<*, *> where T : AppBaseFragmentViewModel =
                 fragmentVMMap[vmClass]!!.java.newInstance().apply {  }
     }
-
-
-
 }

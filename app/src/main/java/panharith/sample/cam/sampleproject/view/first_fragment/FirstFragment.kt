@@ -14,5 +14,7 @@ class FirstFragment : AppBaseFragment<FragmentMainBinding, FirstFragmentVM>() {
 
     override val variable = BR.vm
 
-    override val viewModel by lazy { FirstFragmentVM(context) }
+    override val viewModel by lazy {
+        FirstFragmentVM(context)
+    }
 }
