@@ -1,6 +1,8 @@
 package panharith.sample.cam.sampleproject
 
+import android.content.Context
 import cam.sample.library.app.BaseApplication
+import cam.sample.library.util.fragmentArgs
 import net.danlew.android.joda.JodaTimeAndroid
 import panharith.sample.cam.sampleproject.common.base.AppBaseFragment
 import panharith.sample.cam.sampleproject.common.base.AppBaseFragmentViewModel
@@ -14,7 +16,7 @@ import kotlin.reflect.KClass
 /**
  * Created by panharithhuot on 9/25/17.
  */
-class ConfigureApplication : BaseApplication(){
+class ConfigureApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
         JodaTimeAndroid.init(applicationContext)
@@ -24,6 +26,8 @@ class ConfigureApplication : BaseApplication(){
         private val fragmentVMMap = hashMapOf(FirstFragmentVM::class to FirstFragment::class, SplashFragmentVM::class to SplashFragment::class)
 
         fun <T> createFragment(vmClass: KClass<out T>, args: Serializable? = null): AppBaseFragment<*, *> where T : AppBaseFragmentViewModel =
-                fragmentVMMap[vmClass]!!.java.newInstance().apply {  }
+                fragmentVMMap[vmClass]!!.java.newInstance().apply { fragmentArgs = args }
+
+        private fun getApplication(context: Context) = context.applicationContext as ConfigureApplication
     }
 }
